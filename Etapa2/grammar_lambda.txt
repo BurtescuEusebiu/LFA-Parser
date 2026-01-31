@@ -1,0 +1,15 @@
+expr: int_expr11 expr
+int_expr11: int_expr12 int_expr13
+int_expr12: int_expr14 int_expr15
+int_expr13: POINT
+int_expr14: LAMBDA
+int_expr15: VAR
+expr: int_expr21 int_expr22
+int_expr21: LPAREN
+int_expr22: expr int_expr23
+int_expr23: RPAREN
+expr: int_expr31 expr
+int_expr31: expr int_expr32
+int_expr32: OP
+expr: VAR
+expr: NUMBER
