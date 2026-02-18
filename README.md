@@ -7,7 +7,7 @@ Scop: lucrul cu automate și parser pentru expresii lambda.
 - **Etapa 1**: Conversia expresiilor regulate (REGEX) → NFA → DFA → minDFA  
   - Minim DFA implementat folosind algoritmul **Hopcroft**  
 - **Etapa 2**: Implementarea Lexer și Parser folosind DFA și gramatica în FNC  
-  - Parser implementat folosind algoritmul **CYKa Parse (CYK)**  
+  - Parser implementat folosind algoritmul **CYK Parse**  
 
 ---
 
@@ -36,7 +36,7 @@ Scop: lucrul cu automate și parser pentru expresii lambda.
 ### Parser
 - Folosește output-ul lexer-ului  
 - Verifică apartenența la limbaj FNC  
-- Algoritm: **CYKa Parse (CYK)**  
+- Algoritm: **CYK Parse**  
 - Returnează `ParseTree`  
 - Fișiere config:  
   - `grammar_lambda.txt` – gramatica în FNC  
