@@ -60,3 +60,9 @@ expr
         (VAR: y)
       (RPAREN: ))
 ```
+
+## Testare automată
+- Python 3.12  
+```bash
+python3.12 -m unittest
+
