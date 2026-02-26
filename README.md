@@ -1,48 +1,48 @@
 # LFA Parser
 
-## Descriere
-Proiectul are două etape și este implementat în Python.  
-Scop: lucrul cu automate și parser pentru expresii lambda.
+## Description
+The project consists of two stages and is implemented in Python.  
+Goal: working with automata and building a parser for lambda expressions.
 
-- **Etapa 1**: Conversia expresiilor regulate (REGEX) → NFA → DFA → minDFA  
-  - Minim DFA implementat folosind algoritmul **Hopcroft**  
-- **Etapa 2**: Implementarea Lexer și Parser folosind DFA și gramatica în FNC  
-  - Parser implementat folosind algoritmul **CYK Parse**  
-
----
-
-## Etapa 1 – Automate
-
-**Clase:**
-- `Regex`: generează NFA din regex  
-- `NFA`: epsilon-closure, subset-construction  
-- `DFA`: acceptare cuvânt și minimizare (Hopcroft)  
-
-**Funcționalități:**
-- Regex suportă: `*`, `+`, `?`, `|`, `()`, `[a-z]`, `[A-Z]`, `[0-9]`, caractere escaped  
-- Spațiile sunt ignorate dacă nu sunt escape-uite  
-- `STATE` flexibil: `int`, `string`, `frozenset`  
+- **Stage 1**: Conversion of regular expressions (REGEX) → NFA → DFA → minDFA  
+  - DFA minimization implemented using **Hopcroft’s algorithm**
+- **Stage 2**: Implementation of a Lexer and Parser using DFA and a CNF grammar  
+  - Parser implemented using the **CYK Parse algorithm**
 
 ---
 
-## Etapa 2 – Lexer și Parser
+## Stage 1 – Automata
+
+**Classes:**
+- `Regex`: generates NFA from a regular expression  
+- `NFA`: epsilon-closure, subset construction  
+- `DFA`: word acceptance and minimization (Hopcroft)  
+
+**Features:**
+- Regex supports: `*`, `+`, `?`, `|`, `()`, `[a-z]`, `[A-Z]`, `[0-9]`, escaped characters  
+- Whitespaces are ignored unless escaped  
+- Flexible `STATE` type: `int`, `string`, `frozenset`  
+
+---
+
+## Stage 2 – Lexer and Parser
 
 ### Lexer
-- Specificație: `spec = [(TOKEN, regex), ...]`  
-- Returnează lista de tupluri `(token, lexem)`  
-- Identifică cel mai lung subsir valid  
-- Erori: `"No viable alternative at character N, line X"`  
+- Specification format: `spec = [(TOKEN, regex), ...]`  
+- Returns a list of tuples `(token, lexeme)`  
+- Identifies the longest valid substring  
+- Error format: `"No viable alternative at character N, line X"`  
 
 ### Parser
-- Folosește output-ul lexer-ului  
-- Verifică apartenența la limbaj FNC  
-- Algoritm: **CYK Parse**  
-- Returnează `ParseTree`  
-- Fișiere config:  
-  - `grammar_lambda.txt` – gramatica în FNC  
-  - `lexer_spec.json` – specificația tokenilor  
+- Uses the lexer output  
+- Verifies membership in a CNF language  
+- Algorithm: **CYK Parse**  
+- Returns a `ParseTree`  
+- Configuration files:  
+  - `grammar_lambda.txt` – grammar in CNF  
+  - `lexer_spec.json` – token specification  
 
-**Exemplu arbore parsare:**
+**Example parse tree:**
 ```
 expr
   (LAMBDA: \)
@@ -61,7 +61,7 @@ expr
       (RPAREN: ))
 ```
 
-## Testare automată
+## Automated Testing
 - Python 3.12  
 ```bash
 python3.12 -m unittest
