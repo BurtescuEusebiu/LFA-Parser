@@ -1,5 +1,0 @@
-expr
-  (LAMBDA: \)
-  (VAR: x)
-  (POINT: .)
-  (VAR: x)

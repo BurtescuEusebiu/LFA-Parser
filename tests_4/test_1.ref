@@ -1,7 +1,0 @@
-expr
-  (LPAREN: ()
-  expr
-    (VAR: a)
-    (OP: +)
-    (VAR: b)
-  (RPAREN: ))
